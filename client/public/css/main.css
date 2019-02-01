@@ -1,0 +1,40 @@
+body,html{
+	height: 100%;
+	background: #282c34;
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	color: white;
+}
+
+canvas{
+	position: absolute;
+}
+.content-area{
+	flex-direction: row;
+	display: flex;
+}
+#root{
+	background: black;
+}
+#stages{
+	width: 800px;
+	height: 600px;
+}
+#stages .content{
+	overflow:auto;
+	width: 800px;
+	height: 600px;
+	position: absolute;
+}
+.layers div{
+	width: 150px;
+	padding: 10px;
+	cursor: pointer;
+	margin-bottom: 10px;
+	border: 1px solid #555;
+}
+.layers div.colored{
+	background: rgba(255, 255, 255, 0.2);
+
+}

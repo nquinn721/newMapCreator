@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="UTF-8" />
+    <title>App</title>
+    <link rel="stylesheet" href="public/css/main.css" />
+  </head>
+  <body ng-controller="main as main">
+    <div class="content-area">
+      <div class="layers">
+        <div ng-click="main.createStage()">+</div>
+        <div
+          ng-repeat="stage in main.stages"
+          ng-click="main.toggleLayer(stage.name)"
+          ng-class="stage.displayed && 'colored'"
+        >
+          {{ stage.name }}
+        </div>
+      </div>
+      <div id="stages"><div class="content"></div></div>
+    </div>
+    <script src="public/js/lib/angular.js"></script>
+    <script src="public/js/lib/create.js"></script>
+    <script src="dist/index.js"></script>
+  </body>
+</html>
