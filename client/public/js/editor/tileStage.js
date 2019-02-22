@@ -32,9 +32,11 @@ class TileStage extends Event {
     }
   }
   addImage({ name, x = 0, y = 0, w, h }) {
-    const img = this.image.createImage(arguments[0]);
-    this.stage.addChild(img);
-    this.items.push(new Item({ x, y, img }));
+    if (!this.checkForItem(x, y)) {
+      const img = this.image.createImage(arguments[0]);
+      this.stage.addChild(img);
+      this.items.push(new Item({ x, y, img }));
+    }
   }
 
   handleEvent(event, e) {
@@ -44,8 +46,10 @@ class TileStage extends Event {
     return this.modes[this.currentMode];
   }
 
-  checkForItemInCell(x, y) {
-    return this.items.filter(v => v.x === x && v.y === y)[0];
+  checkForItem(x, y) {
+    return this.items.filter(
+      v => v.x <= x && v.x + v.w >= x && v.y <= y && v.y + v.h >= y
+    )[0];
   }
 
   update() {
